@@ -1,5 +1,5 @@
 # manage
-
+egg-eshow 后端接口提供
 
 
 ## QuickStart
@@ -31,3 +31,4 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+ 
