@@ -29,6 +29,22 @@ class UserService extends Service {
       totalPage: Math.ceil(total / pageSize)
     };
   }
+  async updateUser(id, params) {
+    var md5 = crypto.createHash('md5');
+    if (params.password) {
+      params.password = md5.update(params.password).digest('hex');
+    }
+    const result = await this.ctx.model.User.updateOne({
+      "_id": id
+    }, { ...params });
+    return result;
+  }
+  async deleteUser(params) {
+    const result = await this.ctx.model.User.deleteOne({
+      "_id": params
+    });
+    return result
+  }
 }
 
 module.exports = UserService;

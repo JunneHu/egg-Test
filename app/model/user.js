@@ -12,11 +12,10 @@ module.exports = app => {
             trim: true
         },
         sex: Number,  // 性别  1 男  2 女
-        nation: String, // 民族
         nick_name: String,   // 昵称
         phone: String,  // 手机号
         id_card: String,   // 身份证
-        province: String,  // 省市区
+        province: [String],  // 省市区
         birthday: String,  // 生日
         head_img: String,  // 头像
         reg_time: { type: Date, default: Date.now },   // 注册时间

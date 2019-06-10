@@ -18,11 +18,16 @@ module.exports = appInfo => {
 
   // 安全配置
   config.security = {
+    domainWhiteList: ['http://10.0.1.236:3005'],
     csrf: {
       enable: false,
+      ignoreJSON: true,
     },
   };
-
+  config.cors = {
+    origin:'*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+  }
   // HTTP请求配置
   config.httpclient = {
     request: {
@@ -96,5 +101,6 @@ module.exports = appInfo => {
   return {
     ...config,
     ...userConfig,
+
   };
 };

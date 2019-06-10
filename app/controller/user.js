@@ -34,14 +34,28 @@ class UserController extends Controller {
     async show() {
 
     }
-    async edit() {
-
-    }
+    // put 根据id修改一条数据
     async update() {
-
+        const { ctx } = this;
+        const id = ctx.params.id;
+        const res = await this.service.user.updateUser(id, ctx.request.body);
+        ctx.body = {
+            code: 0,
+            message: res,
+            data: '修改成功',
+        };
+        ctx.status = 200;
     }
     async destroy() {
-
+        const { ctx } = this;
+        const id = ctx.params.id;
+        const res = await this.service.user.deleteUser(id);
+        ctx.body = {
+            code: 0,
+            message: res,
+            data: '删除成功',
+        };
+        ctx.status = 200;
     }
 }
 
